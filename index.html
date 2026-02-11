@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ken Bu Kai Shito Ryu - Master the Art</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header with Logo and Navigation -->
+    <header class="header">
+        <div class="logo-section">
+            <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🥋</text></svg>" alt="Logo" class="logo" id="siteLogo">
+            <h1 class="site-title">Ken Bu Kai Shito Ryu</h1>
+        </div>
+        <nav class="nav-menu">
+            <a href="#home">Home</a>
+            <a href="#basics">Basics</a>
+            <a href="#kata">Kata</a>
+            <a href="#kumite">Kumite</a>
+            <a href="#masters">Masters</a>
+            <a href="#champions">Champions</a>
+            <a href="#membership">Membership</a>
+            <a href="#admin" id="adminLink" style="display: none;">Admin Panel</a>
+        </nav>
+        <div class="profile-section">
+            <div class="profile-icon" id="profileIcon" onclick="toggleProfileDropdown()">
+                <i class="fas fa-user-circle"></i>
+            </div>
+            <div class="profile-dropdown" id="profileDropdown">
+                <div class="profile-header">
+                    <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🥋</text></svg>" alt="Profile" class="profile-avatar" id="profileAvatar">
+                    <div class="profile-info">
+                        <h3 id="profileName">Guest</h3>
+                        <p id="profileMembership">No Membership</p>
+                    </div>
+                </div>
+                <div class="profile-options">
+                    <a href="#" onclick="showAchievements()"><i class="fas fa-trophy"></i> My Achievements</a>
+                    <a href="#" onclick="showGrade()"><i class="fas fa-belt"></i> My Grade</a>
+                    <a href="#" onclick="showMembershipDetails()"><i class="fas fa-id-card"></i> Membership Details</a>
+                    <a href="#" onclick="logout()" id="logoutOption"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h2 class="hero-title">Master the Art of Karate</h2>
+            <p class="hero-subtitle">Learn from the best masters in the world</p>
+            <a href="#membership" class="cta-button">Join Our Academy</a>
+        </div>
+    </section>
+
+    <!-- Basics Section -->
+    <section id="basics" class="section">
+        <h2 class="section-title">Karate Basics</h2>
+        <div class="video-grid" id="basicsGrid">
+            <!-- Videos will be dynamically added -->
+        </div>
+    </section>
+
+    <!-- Kata Section -->
+    <section id="kata" class="section">
+        <h2 class="section-title">Kata (Forms)</h2>
+        <div class="video-grid" id="kataGrid">
+            <!-- Videos will be dynamically added -->
+        </div>
+    </section>
+
+    <!-- Kumite Section -->
+    <section id="kumite" class="section">
+        <h2 class="section-title">Kumite (Sparring)</h2>
+        <div class="video-grid" id="kumiteGrid">
+            <!-- Videos will be dynamically added -->
+        </div>
+    </section>
+
+    <!-- Masters Section -->
+    <section id="masters" class="section">
+        <h2 class="section-title">Our Masters</h2>
+        <div class="masters-grid" id="mastersGrid">
+            <!-- Masters will be dynamically added -->
+        </div>
+    </section>
+
+    <!-- Champions Section -->
+    <section id="champions" class="section">
+        <h2 class="section-title">Our Champions</h2>
+        <div class="champions-grid" id="championsGrid">
+            <!-- Champions will be dynamically added -->
+        </div>
+    </section>
+
+    <!-- Membership Section -->
+    <section id="membership" class="section membership-section">
+        <h2 class="section-title">Membership Plans</h2>
+        <div class="membership-plans">
+            <div class="plan-card">
+                <h3>Basic</h3>
+                <p class="plan-price">$29/month</p>
+                <ul class="plan-features">
+                    <li><i class="fas fa-check"></i> Access to Basics videos</li>
+                    <li><i class="fas fa-check"></i> Community forum access</li>
+                    <li><i class="fas fa-times" style="color: #888;"></i> Kata videos locked</li>
+                    <li><i class="fas fa-times" style="color: #888;"></i> Kumite videos locked</li>
+                </ul>
+                <button class="plan-button" onclick="selectPlan('basic')">Select Plan</button>
+            </div>
+            <div class="plan-card featured">
+                <h3>Premium</h3>
+                <p class="plan-price">$59/month</p>
+                <ul class="plan-features">
+                    <li><i class="fas fa-check"></i> All Basics videos</li>
+                    <li><i class="fas fa-check"></i> All Kata videos</li>
+                    <li><i class="fas fa-check"></i> All Kumite videos</li>
+                    <li><i class="fas fa-check"></i> Live training sessions</li>
+                    <li><i class="fas fa-check"></i> Priority support</li>
+                </ul>
+                <button class="plan-button" onclick="selectPlan('premium')">Select Plan</button>
+            </div>
+            <div class="plan-card">
+                <h3>Master</h3>
+                <p class="plan-price">$99/month</p>
+                <ul class="plan-features">
+                    <li><i class="fas fa-check"></i> All Premium features</li>
+                    <li><i class="fas fa-check"></i> 1-on-1 mentoring</li>
+                    <li><i class="fas fa-check"></i> Certificate programs</li>
+                    <li><i class="fas fa-check"></i> Exclusive master classes</li>
+                    <li><i class="fas fa-check"></i> Championship coaching</li>
+                </ul>
+                <button class="plan-button" onclick="selectPlan('master')">Select Plan</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Join Us Page (Overlay) -->
+    <div class="overlay" id="joinOverlay">
+        <div class="join-modal">
+            <button class="close-modal" onclick="closeJoinModal()">&times;</button>
+            <div class="join-content" id="joinContent">
+                <h2>Join Ken Bu Kai Shito Ryu</h2>
+                <p>Enter your membership key to unlock all features</p>
+                <form id="joinForm" onsubmit="handleJoin(event)">
+                    <input type="text" id="membershipKey" placeholder="Enter Membership Key" required>
+                    <button type="submit" class="join-button">Unlock Access</button>
+                </form>
+                <div id="joinError" class="error-message"></div>
+                <div id="joinSuccess" class="success-message"></div>
+                <div id="memberInfo" class="member-info" style="display: none;">
+                    <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🥋</text></svg>" alt="Member" class="member-avatar">
+                    <h3 id="memberName"></h3>
+                    <p id="memberPlan"></p>
+                    <p id="memberKey"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Panel -->
+    <div class="overlay" id="adminOverlay">
+        <div class="admin-modal">
+            <button class="close-modal" onclick="closeAdminPanel()">&times;</button>
+            <div class="admin-content">
+                <h2>Admin Panel</h2>
+                <div class="admin-tabs">
+                    <button class="tab-button active" onclick="showAdminTab('members')">Members</button>
+                    <button class="tab-button" onclick="showAdminTab('addMember')">Add Member</button>
+                    <button class="tab-button" onclick="showAdminTab('upgrade')">Upgrade</button>
+                    <button class="tab-button" onclick="showAdminTab('logo')">Logo</button>
+                    <button class="tab-button" onclick="showAdminTab('masters')">Masters</button>
+                    <button class="tab-button" onclick="showAdminTab('champions')">Champions</button>
+                    <button class="tab-button" onclick="showAdminTab('contact')">Contact</button>
+                </div>
+                
+                <!-- Members Tab -->
+                <div class="admin-tab active" id="membersTab">
+                    <h3>All Members</h3>
+                    <div class="members-list" id="membersList">
+                        <!-- Members will be listed here -->
+                    </div>
+                </div>
+
+                <!-- Add Member Tab -->
+                <div class="admin-tab" id="addMemberTab">
+                    <h3>Add New Member</h3>
+                    <form id="addMemberForm" onsubmit="handleAddMember(event)">
+                        <input type="text" id="newMemberName" placeholder="Member Name" required>
+                        <input type="email" id="newMemberEmail" placeholder="Email" required>
+                        <label for="newMemberPlan" class="sr-only">Select Plan</label>
+                        <select id="newMemberPlan" title="Select membership plan" required>
+                            <option value="">Select Plan</option>
+                            <option value="basic">Basic</option>
+                            <option value="premium">Premium</option>
+                            <option value="master">Master</option>
+                        </select>
+                        <input type="text" id="newMemberKey" placeholder="Membership Key" required>
+                        <button type="submit" class="admin-button">Add Member</button>
+                    </form>
+                </div>
+
+                <!-- Upgrade Tab -->
+                <div class="admin-tab" id="upgradeTab">
+                    <h3>Upgrade Membership</h3>
+                    <form id="upgradeForm" onsubmit="handleUpgrade(event)">
+                        <input type="text" id="upgradeMemberKey" placeholder="Member's Key" required>
+                        <label for="upgradePlan" class="sr-only">Select New Plan</label>
+                        <select id="upgradePlan" title="Select new membership plan" required>
+                            <option value="">Select New Plan</option>
+                            <option value="basic">Basic</option>
+                            <option value="premium">Premium</option>
+                            <option value="master">Master</option>
+                        </select>
+                        <button type="submit" class="admin-button">Upgrade Membership</button>
+                    </form>
+                    <div id="upgradeMessage"></div>
+                </div>
+
+                <!-- Logo Tab -->
+                <div class="admin-tab" id="logoTab">
+                    <h3>Change Logo</h3>
+                    <label for="logoUpload" class="file-label"><i class="fas fa-image"></i> Choose Logo Image</label>
+                    <input type="file" id="logoUpload" title="Upload logo image" accept="image/*" onchange="handleLogoUpload(event)">
+                    <div id="logoPreview"></div>
+                </div>
+
+                <!-- Masters Tab -->
+                <div class="admin-tab" id="mastersTab">
+                    <h3>Add Master</h3>
+                    <form id="addMasterForm" onsubmit="handleAddMaster(event)">
+                        <input type="text" id="masterName" placeholder="Master Name" required>
+                        <input type="text" id="masterTitle" placeholder="Title" required>
+                        <label for="masterPhoto" class="file-label"><i class="fas fa-camera"></i> Choose Master Photo</label>
+                        <input type="file" id="masterPhoto" title="Upload master photo" accept="image/*" required>
+                        <textarea id="masterBio" placeholder="Biography" required></textarea>
+                        <button type="submit" class="admin-button">Add Master</button>
+                    </form>
+                    <h4>Existing Masters</h4>
+                    <div id="mastersList"></div>
+                </div>
+
+                <!-- Champions Tab -->
+                <div class="admin-tab" id="championsTab">
+                    <h3>Add Champion</h3>
+                    <form id="addChampionForm" onsubmit="handleAddChampion(event)">
+                        <input type="text" id="championName" placeholder="Champion Name" required>
+                        <input type="text" id="championTitle" placeholder="Title" required>
+                        <label for="championPhoto" class="file-label"><i class="fas fa-camera"></i> Choose Champion Photo</label>
+                        <input type="file" id="championPhoto" title="Upload champion photo" accept="image/*" required>
+                        <textarea id="championAchievements" placeholder="Achievements" required></textarea>
+                        <button type="submit" class="admin-button">Add Champion</button>
+                    </form>
+                    <h4>Existing Champions</h4>
+                    <div id="championsList"></div>
+                </div>
+
+                <!-- Contact Tab -->
+                <div class="admin-tab" id="contactTab">
+                    <h3>Edit Contact Information</h3>
+                    <form id="contactForm" onsubmit="handleContactEdit(event)">
+                        <input type="text" id="contactEmail" placeholder="Email" required>
+                        <input type="text" id="contactPhone" placeholder="Phone" required>
+                        <textarea id="contactAddress" placeholder="Address" required></textarea>
+                        <input type="text" id="contactInstagram" placeholder="Instagram URL">
+                        <input type="text" id="contactFacebook" placeholder="Facebook URL">
+                        <input type="text" id="contactYoutube" placeholder="YouTube URL">
+                        <button type="submit" class="admin-button">Save Contact</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Achievements Modal -->
+    <div class="overlay" id="achievementsOverlay">
+        <div class="modal">
+            <button class="close-modal" onclick="closeModal('achievementsOverlay')">&times;</button>
+            <h2>My Achievements</h2>
+            <div id="achievementsList"></div>
+        </div>
+    </div>
+
+    <!-- Grade Modal -->
+    <div class="overlay" id="gradeOverlay">
+        <div class="modal">
+            <button class="close-modal" onclick="closeModal('gradeOverlay')">&times;</button>
+            <h2>My Grade</h2>
+            <div class="belt-display">
+                <div class="belt" id="currentBelt"></div>
+                <p id="currentGrade">No grade assigned</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Membership Details Modal -->
+    <div class="overlay" id="membershipOverlay">
+        <div class="modal">
+            <button class="close-modal" onclick="closeModal('membershipOverlay')">&times;</button>
+            <h2>Membership Details</h2>
+            <div id="membershipDetails"></div>
+        </div>
+    </div>
+
+    <!-- Video Modal -->
+    <div class="overlay" id="videoOverlay">
+        <div class="video-modal">
+            <button class="close-modal" onclick="closeVideoModal()">&times;</button>
+            <div id="videoPlayer"></div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Ken Bu Kai Shito Ryu</h3>
+                <p>Master the art of Karate with world-renowned masters</p>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p id="footerEmail"><i class="fas fa-envelope"></i> info@samuraitkarate.com</p>
+                <p id="footerPhone"><i class="fas fa-phone"></i> +1 234 567 890</p>
+                <p id="footerAddress"><i class="fas fa-map-marker-alt"></i> 123 Karate Street, Tokyo, Japan</p>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="#" id="footerInstagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" id="footerFacebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" id="footerYoutube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Ken Bu Kai Shito Ryu. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
